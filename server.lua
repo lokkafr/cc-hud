@@ -1,6 +1,4 @@
 -- CC SCRIPTS / HUD
-
-local QBCore = exports['qb-core']:GetCoreObject()
 local ResetStress = false
 
 lib.addCommand('dev', { help = locale('info.toggle_dev_mode') }, function(source, args, raw)
