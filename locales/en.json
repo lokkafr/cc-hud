@@ -1,0 +1,23 @@
+{
+    "notify.hud_settings_loaded": "HUD Settings Loaded!",
+    "notify.hud_restart": "HUD Is Restarting!",
+    "notify.hud_start": "HUD Is Now Started!",
+    "notify.hud_command_info": "This command resets your current HUD settings!",
+    "notify.load_square_map": "Square Map Loading...",
+    "notify.loaded_square_map": "Square Map Has Loaded!",
+    "notify.load_circle_map": "Circle Map Loading...",
+    "notify.loaded_circle_map": "Circle Map Has Loaded!",
+    "notify.cinematic_on": "Cinematic Mode On!",
+    "notify.cinematic_off": "Cinematic Mode Off!",
+    "notify.engine_on": "Engine Started!",
+    "notify.engine_off": "Engine Shut Down!",
+    "notify.low_fuel": "Fuel Level Low!",
+    "notify.access_denied": "You Are Not Authorized!",
+    "notify.stress_gain": "Feeling More Stressed!",
+    "notify.stress_removed": "Feeling More Relaxed!",
+    "info.toggle_engine": "Toggle Engine",
+    "info.open_menu": "Open Menu",
+    "info.check_cash_balance": "Check Cash Balance",
+    "info.check_bank_balance": "Check Bank Balance",
+    "info.toggle_dev_mode": "Enable/Disable developer Mode"
+}
