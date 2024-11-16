@@ -1,5 +1,6 @@
 -- CC SCRIPTS / HUD
 local ResetStress = false
+lib.locale()
 
 lib.addCommand('dev', { help = locale('info.toggle_dev_mode') }, function(source, args, raw)
     TriggerClientEvent("qb-admin:client:ToggleDevmode", source)
@@ -7,14 +8,12 @@ end)
 
 RegisterNetEvent('hud:server:GainStress', function(amount)
     local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local Player = Ox.GetPlayer(src)
     local newStress
-    if not Player or (Config.DisablePoliceStress and Player.PlayerData.job.name == 'police' or Player.PlayerData.job.name == 'sheriff' or Player.PlayerData.job.name == 'trooper') then return end
+    if not Player or (Config.DisablePoliceStress and Player.getGroup('police')) then return end
     if not ResetStress then
-        if not Player.PlayerData.metadata['stress'] then
-            Player.PlayerData.metadata['stress'] = 0
-        end
-        newStress = Player.PlayerData.metadata['stress'] + amount
+        if not Player.getStatus('stress') then Player.setStatus('stress', 0) end
+        newStress = Player.getStatus('stress') + amount
         if newStress <= 0 then newStress = 0 end
     else
         newStress = 0
@@ -22,21 +21,19 @@ RegisterNetEvent('hud:server:GainStress', function(amount)
     if newStress > 100 then
         newStress = 100
     end
-    Player.Functions.SetMetaData('stress', newStress)
+    Player.setStatus('stress', newStress)
     TriggerClientEvent('hud:client:UpdateStress', src, newStress)
-    --TriggerClientEvent('QBCore:Notify', src, Lang:t("notify.stress_gain"), 'error', 1500)
+    TriggerClientEvent('ox_lib:notify', src, { description = locale('notify.stress_gain') })
 end)
 
 RegisterNetEvent('hud:server:RelieveStress', function(amount)
     local src = source
-    local Player = QBCore.Functions.GetPlayer(src)
+    local Player = Ox.GetPlayer(src)
     local newStress
     if not Player then return end
     if not ResetStress then
-        if not Player.PlayerData.metadata['stress'] then
-            Player.PlayerData.metadata['stress'] = 0
-        end
-        newStress = Player.PlayerData.metadata['stress'] - amount
+        if not Player.getStatus('stress') then Player.setStatus('stress', 0) end
+        newStress = Player.getStatus('stress') - amount
         if newStress <= 0 then newStress = 0 end
     else
         newStress = 0
@@ -44,20 +41,20 @@ RegisterNetEvent('hud:server:RelieveStress', function(amount)
     if newStress > 100 then
         newStress = 100
     end
-    Player.Functions.SetMetaData('stress', newStress)
+    Player.setStatus('stress', newStress)
     TriggerClientEvent('hud:client:UpdateStress', src, newStress)
-    TriggerClientEvent('QBCore:Notify', src, Lang:t("notify.stress_removed"))
+    TriggerClientEvent('ox_lib:notify', src, { description = locale('notify.stress_removed') })
 end)
 
 RegisterNetEvent('hud:server:saveUIData', function(data)
     local src = source
 	-- Check Permissions
-    if not QBCore.Functions.HasPermission(src, 'admin') and not IsPlayerAceAllowed(src, 'command') then
+    if not IsPlayerAceAllowed(src, 'admin') and not IsPlayerAceAllowed(src, 'command') then
 		return
 	end
 
     -- Ensure a player is invoking this net event
-    local Player = QBCore.Functions.GetPlayer(src)
+    local Player = Ox.GetPlayer(src)
 	if not Player then return end
 
     local uiConfigData = {}
@@ -182,15 +179,11 @@ RegisterNetEvent('hud:server:saveUIData', function(data)
     TriggerClientEvent('hud:client:UpdateUISettings', -1, uiConfigData)
 end)
 
-QBCore.Functions.CreateCallback('hud:server:getMenu', function(source, cb)
-    cb(Config.Menu)
-end) 
+lib.callback.register('hud:server:getMenu', function(source)
+    return Config.Menu
+end)
 
-QBCore.Functions.CreateCallback('hud:server:getRank', function(source, cb)
+lib.callback.register('hud:server:getRank', function(source)
     local src = source
-    if QBCore.Functions.HasPermission(src, 'admin') or IsPlayerAceAllowed(src, 'command') then
-        cb(true)
-    else
-        cb(false)
-    end
+    return IsPlayerAceAllowed(src, 'admin') or IsPlayerAceAllowed(src, 'command')
 end)
