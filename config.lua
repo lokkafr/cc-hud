@@ -9,7 +9,7 @@ Config.MinimumStress = 60 -- Minimum stress level at which the screen will start
 Config.MinimumSpeedUnbuckled = 60 -- Speed at which players will get stressed while unbuckled
 Config.MinimumSpeed = 110 -- Speed at which players will get stressed while buckled
 Config.DisablePoliceStress = false -- If false, any player with the police job will not get stressed
-Config.FuelScript = 'LegacyFuel' -- Change to your fuel script (LegacyFuel, ps-fuel, cdn-fuel etc.)
+Config.FuelScript = 'ox_fuel' -- Change to your fuel script (LegacyFuel, ps-fuel, cdn-fuel, ox_fuel etc.)
 Config.Image = 'https://r2.fivemanage.com/6u8qsuOiaFXnjrqPOtI5D/HyWyIy7.png' -- Set your server logo displayed in the HUD menu here
 
 Config.AdminOnly = false -- TRUE to only allow admins to change icons/shapes / FALSE for everyone
