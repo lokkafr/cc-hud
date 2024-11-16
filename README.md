@@ -1,6 +1,6 @@
 ![CC HUD - GitHub Banner](https://github.com/CandrexDev/cc-hud/assets/62235410/02989744-3bbd-4cfe-ae4a-fd3ce70193dc)
 
-### ox_core Fork
+## ox_core Fork
 Changes made with fork:
 1. Removed the `cash` command.
 2. Removed the `bank` command.
@@ -14,6 +14,12 @@ Changes made with fork:
 10. Cruise is always disabled as ox_core doesn't come with the ability to enable/disable a cruise yet.
 11. Nitrous is always disabled as ox_core doesn't come with the ability to enable/disable a nitrous yet.
 12. Added `ox_fuel` as an acceptable option in the config.
+
+Future Plans:
+- Create cruise control system within cc-hud.
+- Create seatbelt system within cc-hud.
+
+---
 
 ### CC HUD (cc-hud)
 * Tebex: https://ccdev.tebex.io/
