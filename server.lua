@@ -3,12 +3,6 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local ResetStress = false
 
-QBCore.Commands.Add('cash', Lang:t('info.check_cash_balance'), {}, false, function(source, args)
-    local Player = QBCore.Functions.GetPlayer(source)
-    local cashamount = Player.PlayerData.money.cash
-    TriggerClientEvent('hud:client:ShowAccounts', source, 'cash', cashamount)
-end)
-
 QBCore.Commands.Add('bank', Lang:t('info.check_bank_balance'), {}, false, function(source, args)
     local Player = QBCore.Functions.GetPlayer(source)
     local bankamount = Player.PlayerData.money.bank
