@@ -1,5 +1,20 @@
 ![CC HUD - GitHub Banner](https://github.com/CandrexDev/cc-hud/assets/62235410/02989744-3bbd-4cfe-ae4a-fd3ce70193dc)
 
+### ox_core Fork
+Changes made with fork:
+1. Removed the `cash` command.
+2. Removed the `bank` command.
+3. Added `ox_lib` dependency.
+4. Added `ox_core` dependency.
+5. English (en) locale changed for ox_lib.
+6. All locales not English (en) removed.
+7. Dev command changed to ox_lib.
+8. Harness is always disabled as ox_core doesn't come with the ability to enable/disable a harness yet.
+9. Seatbelt is always disabled as ox_core doesn't come with the ability to enable/disable a seatbelt yet.
+10. Cruise is always disabled as ox_core doesn't come with the ability to enable/disable a cruise yet.
+11. Nitrous is always disabled as ox_core doesn't come with the ability to enable/disable a nitrous yet.
+12. Added `ox_fuel` as an acceptable option in the config.
+
 ### CC HUD (cc-hud)
 * Tebex: https://ccdev.tebex.io/
 * Discord: https://discord.gg/N5ut9BYkSK
@@ -13,10 +28,12 @@
 * ... and all features from ps-hud/qb-hud
 
 ## Dependencies
-* Only QBCore is required
+* ox_lib
+* ox_core
 
 ## Optional:
-* [ps-buffs](https://github.com/Project-Sloth/ps-buffs)
+<!-- * [ps-buffs](https://github.com/Project-Sloth/ps-buffs) -->
+* ox_fuel
 
 ## Installation
 * **Remove your current HUD script (qb-hud, ps-hud etc.)**
