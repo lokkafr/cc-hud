@@ -1031,7 +1031,7 @@ CreateThread(function()
         if loggedIn then
             local ped = PlayerPedId()
             if IsPedInAnyVehicle(ped, false) and not IsThisModelABicycle(GetEntityModel(GetVehiclePedIsIn(ped, false))) and not isElectric(GetVehiclePedIsIn(ped, false)) then
-                if (Config.FuelScripts ~= 'ox_lib' and exports[Config.FuelScript]:GetFuel(GetVehiclePedIsIn(ped, false)) or Entity(GetVehiclePedIsIn(ped, false)).state.fuel) <= 20 then -- At 20% Fuel Left
+                if (Config.FuelScript ~= 'ox_fuel' and exports[Config.FuelScript]:GetFuel(GetVehiclePedIsIn(ped, false)) or Entity(GetVehiclePedIsIn(ped, false)).state.fuel) <= 20 then -- At 20% Fuel Left
                     if Menu.isLowFuelChecked then
                         TriggerServerEvent("InteractSound_SV:PlayOnSource", "pager", 0.10)
                         lib.notify({ description = locale('notify.low_fuel', type = 'error') })
