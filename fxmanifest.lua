@@ -8,8 +8,6 @@ version '1.0.1'
 shared_scripts {
 	'@ox_lib/init.lua',
 	'@ox_core/lib/init.lua',
-	'locales/en.lua',
-	'locales/*.lua',
 	'config.lua',
 	'uiconfig.lua'
 }
