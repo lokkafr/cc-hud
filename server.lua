@@ -3,9 +3,9 @@
 local QBCore = exports['qb-core']:GetCoreObject()
 local ResetStress = false
 
-QBCore.Commands.Add("dev", Lang:t('info.toggle_dev_mode'), {}, false, function(source, args)
+lib.addCommand('dev', { help = locale('info.toggle_dev_mode') }, function(source, args, raw)
     TriggerClientEvent("qb-admin:client:ToggleDevmode", source)
-end, 'admin')
+end)
 
 RegisterNetEvent('hud:server:GainStress', function(amount)
     local src = source
