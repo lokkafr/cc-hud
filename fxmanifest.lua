@@ -6,7 +6,8 @@ description 'CC HUD Script'
 version '1.0.1'
 
 shared_scripts {
-	'@qb-core/shared/locale.lua',
+	'@ox_lib/init.lua',
+	'@ox_core/lib/init.lua',
 	'locales/en.lua',
 	'locales/*.lua',
 	'config.lua',
@@ -20,7 +21,13 @@ ui_page 'html/index.html'
 
 files {
 	'html/*',
+	'locales/*.json',
 }
 
 lua54 'yes'
 use_fxv2_oal 'yes'
+
+dependencies {
+	'ox_lib',
+	'ox_core',
+}
