@@ -881,7 +881,7 @@ CreateThread(function()
                 end
             end
 
-            playerDead = IsEntityDead(player) or PlayerData.metadata["inlaststand"] or PlayerData.metadata["isdead"] or false
+            playerDead = IsEntityDead(player) or Ox.GetPlayer().get('isDead')
             parachute = GetPedParachuteState(player)
 
             -- Stamina
