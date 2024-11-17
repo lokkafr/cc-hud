@@ -627,13 +627,13 @@ RegisterNetEvent('ox:statusTick', function(statuses)
     stress = statuses['stress']
 end)
 
--- RegisterNetEvent('hud:client:ToggleShowSeatbelt', function()
---     showSeatbelt = not showSeatbelt
--- end)
+RegisterNetEvent('hud:client:ToggleShowSeatbelt', function()
+    showSeatbelt = not showSeatbelt
+end)
 
--- RegisterNetEvent('seatbelt:client:ToggleSeatbelt', function() -- Triggered in smallresources
---     seatbeltOn = not seatbeltOn
--- end)
+RegisterNetEvent('seatbelt:client:ToggleSeatbelt', function() -- Triggered in smallresources
+    seatbeltOn = not seatbeltOn
+end)
 
 -- RegisterNetEvent('seatbelt:client:ToggleCruise', function() -- Triggered in smallresources
 --     cruiseOn = not cruiseOn
@@ -1077,21 +1077,21 @@ end)
 
 -- Harness Check / Seatbelt Check
 
--- CreateThread(function()
---     while true do
---         Wait(1500)
---         if loggedIn then
---             local ped = PlayerPedId()
---             if IsPedInAnyVehicle(ped, false) then
---                 hasHarness()
---                 local veh = GetEntityModel(GetVehiclePedIsIn(ped, false))
---                 if seatbeltOn ~= true and IsThisModelACar(veh) then
---                     TriggerEvent("InteractSound_CL:PlayOnOne", "beltalarm", 0.6)
---                 end
---             end
---         end
---     end
--- end)
+CreateThread(function()
+    while true do
+        Wait(1500)
+        if loggedIn then
+            local ped = PlayerPedId()
+            if IsPedInAnyVehicle(ped, false) then
+                hasHarness()
+                local veh = GetEntityModel(GetVehiclePedIsIn(ped, false))
+                if seatbeltOn ~= true and IsThisModelACar(veh) then
+                    TriggerEvent("InteractSound_CL:PlayOnOne", "beltalarm", 0.6)
+                end
+            end
+        end
+    end
+end)
 
 
 -- Stress Gain
