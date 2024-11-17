@@ -12,7 +12,7 @@ shared_scripts {
 	'uiconfig.lua'
 }
 
-client_script 'client.lua'
+client_scripts { 'client/*.lua' }
 server_script 'server.lua'
 
 ui_page 'html/index.html'
